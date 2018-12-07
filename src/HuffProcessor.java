@@ -71,7 +71,7 @@ public class HuffProcessor {
 			out.close();
 		}
 		
-		public HuffNode readTreeHeader(BitInputStream in) {
+		private HuffNode readTreeHeader(BitInputStream in) {
 
 
 			int bit = in.readBits(BITS_PER_WORD+1);
@@ -93,7 +93,7 @@ public class HuffProcessor {
 			}
 		}
 		
-			public void readCompressedBits(HuffNode root, BitInputStream in, BitOutputStream out) {
+			private void readCompressedBits(HuffNode root, BitInputStream in, BitOutputStream out) {
 				
 				HuffNode current = root; 
 				while (true) {
@@ -106,14 +106,16 @@ public class HuffProcessor {
 						else current = current.myRight;
 
 						//if (bits == 1) 
-						if(current.myRight==null && current.myLeft==null)
-							if (current.myValue == PSUEDO_EOF) 
+						if(current.myRight==null && current.myLeft==null) {
+							if (current.myValue == PSUEDO_EOF) {
 								break;   // out of loop
+								}
 							else {
 								current.myValue = in.readBits(BITS_PER_WORD);
 										current = root; // start back after leaf
 							}
 						}
+					}
 					}
 				}
 
