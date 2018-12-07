@@ -77,9 +77,7 @@ public class HuffProcessor {
 		private HuffNode readTreeHeader(BitInputStream in) {
 
 			int bit = in.readBits(1);
-			
-			
-			
+
 			if (bit == -1) throw new HuffException("illegal bit");
 			
 			if (bit == 0) {
@@ -110,8 +108,8 @@ public class HuffProcessor {
 						
 						}
 						
-						//if (bits == 1) 
-						if(current.myRight==null && current.myLeft==null) {
+						if (bits == 1) {
+						//if(current.myRight==null && current.myLeft==null) {
 							if (current.myValue == PSUEDO_EOF) 
 								break;   // out of loop
 								
