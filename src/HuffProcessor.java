@@ -114,7 +114,7 @@ public class HuffProcessor {
 								break;   // out of loop
 								
 							else {
-								current.myValue = in.readBits(BITS_PER_INT);
+								current.myValue = in.readBits(BITS_PER_WORD);
 										current = root; // start back after leaf
 							}
 						}
