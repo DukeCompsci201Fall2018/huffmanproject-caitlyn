@@ -2,10 +2,6 @@ import java.io.File;
 import java.io.*;
 
 public class HuffMainDecompress {
-	private static final int PSUEDO_EOF = 0;
-	private static final int BITS_PER_INT = 0;
-	private static final int BITS_PER_WORD = 0;
-
 	public static void main(String[] args) {
 		
 		System.out.println("Huffman Decompress Main");
@@ -30,9 +26,5 @@ public class HuffMainDecompress {
 		long diff2 = bos.bitsWritten() - bis.bitsRead();
 		System.out.printf("%d compared to %d\n",diff,diff2);
 	}
-	
-	
-		}
-
-
+}
 		
