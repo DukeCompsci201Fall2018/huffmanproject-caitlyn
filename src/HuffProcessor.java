@@ -78,8 +78,7 @@ public class HuffProcessor {
 
 			int bit = in.readBits(BITS_PER_WORD+1);
 			
-			HuffNode root = new HuffNode(bit,0);
-			
+			HuffNode root = new HuffNode(0,0);
 			
 			if (bit == -1) throw new HuffException("illegal bit");
 			
@@ -113,7 +112,7 @@ public class HuffProcessor {
 								break;   // out of loop
 								
 							else {
-								current.myValue = in.readBits(BITS_PER_WORD);
+								current.myValue = in.readBits(BITS_PER_INT);
 										current = root; // start back after leaf
 							}
 						}
