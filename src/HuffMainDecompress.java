@@ -36,7 +36,7 @@ public class HuffMainDecompress {
 	public void decompress(BitInputStream in, BitOutputStream out) {
 		
 		int bits = in.readBits(BITS_PER_INT);
-		if(bits !=32) {
+		if(bits !=BITS_PER_INT) {
 			throw new HuffException("illegal header starts with "+bits);
 			
 		}
