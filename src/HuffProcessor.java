@@ -103,9 +103,12 @@ public class HuffProcessor {
 						throw new HuffException("bad input, no PSEUDO_EOF");
 					}
 					else { 
-						if (bits == 0) current = current.myLeft;
+						if (bits == 0) {
+							current = current.myLeft;
+						}
 						else current = current.myRight;
-
+						}
+						
 						//if (bits == 1) 
 						if(current.myRight==null && current.myLeft==null) {
 							if (current.myValue == PSUEDO_EOF) 
@@ -117,7 +120,7 @@ public class HuffProcessor {
 							}
 						}
 					}
-					}
+					
 				}
 
 			}
