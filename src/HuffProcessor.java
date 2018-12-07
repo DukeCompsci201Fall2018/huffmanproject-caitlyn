@@ -78,7 +78,9 @@ public class HuffProcessor {
 
 			int bit = in.readBits(BITS_PER_WORD+1);
 			
-			HuffNode root = new HuffNode(0,0);
+			HuffNode rootL = new HuffNode(0,0);
+			HuffNode rootR = new HuffNode(0,0);
+			HuffNode root = new HuffNode(0,0,rootL,rootR);
 			
 			if (bit == -1) throw new HuffException("illegal bit");
 			
@@ -103,10 +105,11 @@ public class HuffProcessor {
 						throw new HuffException("bad input, no PSEUDO_EOF");
 					}
 					else { 
-						if (bits == 0) {
+						if (bits == 0) 
 							current = current.myLeft;
-						}
-						else current = current.myRight;
+						else {
+							current = current.myRight;
+						
 						}
 						
 						//if (bits == 1) 
@@ -124,3 +127,4 @@ public class HuffProcessor {
 				}
 
 			}
+}
