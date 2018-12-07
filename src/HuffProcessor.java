@@ -58,7 +58,10 @@ public class HuffProcessor {
 	 *            Buffered bit stream of the file to be decompressed.
 	 * @param out
 	 *            Buffered bit stream writing to the output file.
+	 *           
 	 */
+	
+	
 	public void decompress(BitInputStream in, BitOutputStream out){
 			
 			int bits = in.readBits(BITS_PER_INT);
@@ -73,10 +76,9 @@ public class HuffProcessor {
 	}
 		private HuffNode readTreeHeader(BitInputStream in) {
 
-
 			int bit = in.readBits(BITS_PER_WORD+1);
 			
-			HuffNode root = new HuffNode(0,0);
+			HuffNode root = new HuffNode(bit,0);
 			
 			
 			if (bit == -1) throw new HuffException("illegal bit");
