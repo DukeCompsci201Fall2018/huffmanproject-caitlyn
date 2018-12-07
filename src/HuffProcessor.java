@@ -76,9 +76,9 @@ public class HuffProcessor {
 	}
 		private HuffNode readTreeHeader(BitInputStream in) {
 
-			int bit = in.readBits(BITS_PER_WORD+1);
+			int bit = in.readBits(1);
 			
-			//HuffNode root = new HuffNode(0,0);
+			
 			
 			if (bit == -1) throw new HuffException("illegal bit");
 			
