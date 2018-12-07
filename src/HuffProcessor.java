@@ -78,16 +78,14 @@ public class HuffProcessor {
 
 			int bit = in.readBits(BITS_PER_WORD+1);
 			
-			HuffNode rootL = new HuffNode(0,0);
-			HuffNode rootR = new HuffNode(0,0);
-			HuffNode root = new HuffNode(0,0,rootL,rootR);
+			//HuffNode root = new HuffNode(0,0);
 			
 			if (bit == -1) throw new HuffException("illegal bit");
 			
 			if (bit == 0) {
-				root.myLeft = readTreeHeader(in);
-				root.myRight = readTreeHeader(in);
-						return new HuffNode(0,0,root.myLeft,root.myRight);
+				HuffNode rootL = readTreeHeader(in);
+				HuffNode rootR = readTreeHeader(in);
+						return new HuffNode(0,0,rootL,rootR);
 			}
 			else {
 				int value = in.readBits(BITS_PER_WORD+1);
