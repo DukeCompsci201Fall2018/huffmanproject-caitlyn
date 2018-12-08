@@ -108,14 +108,14 @@ public class HuffProcessor {
 						
 						}
 						
-						if (bits == 1) {
-						//if(current.myRight==null && current.myLeft==null) {
+						//if (bits == 1) {
+						if(current.myRight==null && current.myLeft==null) {
 							if (current.myValue == PSUEDO_EOF) 
 								break;   // out of loop
 								
 							else {
 								current.myValue = in.readBits(BITS_PER_WORD);
-								out.writeBits(BITS_PER_WORD, current.myValue);
+								out.writeBits(BITS_PER_WORD,current.myValue);
 										current = root; // start back after leaf
 							}
 						}
