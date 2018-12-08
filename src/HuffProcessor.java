@@ -107,7 +107,7 @@ public class HuffProcessor {
 	
 	
 	private void writeHeader(HuffNode root, BitOutputStream out) {
-		
+		out.writeBits(BITS_PER_WORD, HUFF_TREE);
 		
 		if(root.myLeft==null&root.myRight == null) {
 		out.write(1);
